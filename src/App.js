@@ -17,3 +17,5 @@ const App = () => {
 };
 
 export default App;
+
+// Navigation Bar Added, HomePage Added, Shop Inititalized
