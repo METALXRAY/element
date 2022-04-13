@@ -11,7 +11,7 @@ import "./sign-in-form.styles.scss";
 
 import Button from "../button/button.component";
 
-import { UserContext } from "../../contexts/user.context";
+//import { UserContext } from "../../contexts/user.context";
 
 const defaultformFields = {
 	email: "",
@@ -23,26 +23,22 @@ const SignInForm = () => {
 
 	const { email, password } = formFields;
 
-	const { setCurrentUser } = useContext(UserContext);
+	//const { setCurrentUser } = useContext(UserContext);
 
 	const resetFormFields = () => {
 		setFormFields(defaultformFields);
 	};
 
 	const SignInWithGoogle = async () => {
-		const { user } = await signInWithGooglePopup();
-		await createUserDocumentFromAuth(user);
+		await signInWithGooglePopup();
 	};
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		try {
-			const { user } = await signinAuthUserWithEmailandPassword(
-				email,
-				password
-			);
+			await signinAuthUserWithEmailandPassword(email, password);
 
-			setCurrentUser(user);
+			//setCurrentUser(user);
 			resetFormFields();
 		} catch (error) {
 			switch (error.code) {
